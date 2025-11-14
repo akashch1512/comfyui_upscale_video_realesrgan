@@ -13,6 +13,7 @@ import uuid
 import tempfile
 import socket
 import traceback
+from akashmade.upload import upload_to_api
 
 # Time to wait between API check attempts in milliseconds
 COMFY_API_AVAILABLE_INTERVAL_MS = 50
@@ -706,7 +707,8 @@ def handler(job):
                                 )
 
                                 print(f"worker-comfyui - Uploading {filename} to S3...")
-                                s3_url = rp_upload.upload_image(job_id, temp_file_path)
+                                # s3_url = rp_upload.upload_image(job_id, temp_file_path)
+                                s3_url = upload_to_api(temp_file_path)
                                 os.remove(temp_file_path)  # Clean up temp file
                                 print(
                                     f"worker-comfyui - Uploaded {filename} to S3: {s3_url}"
