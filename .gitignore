@@ -5,3 +5,7 @@ data
 models
 simulated_uploaded
 __pycache__
+test_input.json
+tests.json
+.runpod/tests.json
+test_input.json
