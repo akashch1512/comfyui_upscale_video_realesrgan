@@ -117,7 +117,7 @@ WORKDIR /
 RUN uv pip install runpod requests websocket-client
 
 # Add application code and scripts
-COPY src/start.sh handler.py test_input.json akashmade/ ./
+ADD src/start.sh handler.py ./
 RUN chmod +x /start.sh
 
 # Add script to install custom nodes
